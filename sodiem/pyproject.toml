@@ -1,0 +1,10 @@
+[project]
+name = "sodiem.app"
+version = "1.0.0"
+requires-pythong = ">=3.12"
+dependencies = [
+    "flask",
+]
+
+[tool.vercel]
+entrypoint = "sodiem:ap"

@@ -1,0 +1,84 @@
+
+{% extends "base.html" %}
+
+{% block title %}Liên hệ{% endblock %}
+
+{% block content %}
+<div class="contact-page">
+
+  <section class="contact-hero">
+    <span class="contact-label">MINIBLOG · CONTACT</span>
+    <h1>Hãy kết nối với chúng tôi</h1>
+    <p>
+      Bạn có câu hỏi, góp ý hoặc ý tưởng muốn chia sẻ?
+      MiniBlog luôn sẵn sàng lắng nghe bạn.
+    </p>
+  </section>
+
+  <section class="contact-grid">
+    <div class="contact-card">
+      <div class="contact-icon email-icon">✉</div>
+      <h2>Email</h2>
+      <p>Gửi câu hỏi hoặc góp ý cho chúng tôi.</p>
+      <a href="mailto:miniblog@example.com">
+        miniblog@example.com
+      </a>
+    </div>
+
+    <div class="contact-card">
+      <div class="contact-icon phone-icon">☎</div>
+      <h2>Điện thoại</h2>
+      <p>Liên hệ trực tiếp khi bạn cần hỗ trợ.</p>
+      <a href="tel:0123456789">0123 456 789</a>
+    </div>
+
+    <div class="contact-card">
+      <div class="contact-icon address-icon">⌖</div>
+      <h2>Địa chỉ</h2>
+      <p>Ghé thăm chúng tôi tại</p>
+      <span>Khoa Công nghệ Thông tin, Trường Đại học Khoa học, Đại học Huế</span>
+    </div>
+  </section>
+
+  <section class="contact-details">
+    <div class="details-heading">
+      <div>
+        <span class="section-label">THÔNG TIN</span>
+        <h2>Thông tin liên hệ</h2>
+        <p>Các thông tin cần thiết để kết nối với MiniBlog.</p>
+      </div>
+      <span class="details-symbol">↗</span>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table contact-table align-middle mb-0">
+        <tbody>
+          {% for nhan, gia_tri in thong_tin %}
+          <tr>
+            <th scope="row">{{ nhan }}</th>
+            <td>
+              {% if nhan == "Email" %}
+                <a href="mailto:{{ gia_tri }}">{{ gia_tri }}</a>
+              {% elif nhan == "Điện thoại" %}
+                <a href="tel:{{ gia_tri|replace(' ', '') }}">{{ gia_tri }}</a>
+              {% else %}
+                {{ gia_tri }}
+              {% endif %}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <div class="contact-bottom">
+    <p> Cảm ơn bạn đã quan tâm đến MiniBlog.</p>
+    <a href="{{ url_for('about') }}" class="back-button">
+      <span>←</span> Về trang giới thiệu
+    </a>
+  </div>
+
+</div>
+{% endblock %}
+  

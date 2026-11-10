@@ -1,0 +1,26 @@
+{% extends "base2.html" %}
+
+{% block title %}Trang Cá Nhân{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow-sm text-center">
+            <div class="card-header bg-white py-3">
+                <h4 class="mb-0 fw-bold">Thông Tin Tài Khoản</h4>
+            </div>
+            <div class="card-body p-4">
+                <div class="mb-3">
+                    <span class="badge bg-secondary px-3 py-2 fs-6">Thành viên</span>
+                </div>
+                <h5 class="card-title fw-bold fs-4">{{ session.get('user', 'Khách') }}</h5>
+                <p class="card-text text-muted">Bạn đã đăng nhập thành công vào hệ thống.</p>
+                <hr>
+                <div class="d-grid gap-2 col-8 mx-auto">
+                    <a href="{{ url_for('logout') }}" class="btn btn-outline-danger">Đăng xuất</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

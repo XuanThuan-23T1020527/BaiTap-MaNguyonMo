@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Bài 2 - Tính Điểm Học Phần{% endblock %}
+
+{% block content %}
+<div class="card shadow-sm">
+    <div class="card-header bg-white text-primary text-center">
+        <h4 class="mb-0 fw-bold">Bài 2: Tính Điểm Học Phần</h4>
+    </div>
+    <div class="card-body p-4">
+        <form method="POST">
+            <div class="mb-3">
+                <label class="form-label fw-bold">Điểm Chuyên cần (10%):</label>
+                <input type="text" name="cc" value="{{ cc_raw }}" class="form-control {% if err_cc %}is-invalid{% endif %}" placeholder="Ví dụ: 10 hoặc 8,5">
+                {% if err_cc %}<div class="invalid-feedback">{{ err_cc }}</div>{% endif %}
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-bold">Điểm Giữa kỳ (30%):</label>
+                <input type="text" name="gk" value="{{ gk_raw }}" class="form-control {% if err_gk %}is-invalid{% endif %}" placeholder="Ví dụ: 8">
+                {% if err_gk %}<div class="invalid-feedback">{{ err_gk }}</div>{% endif %}
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-bold">Điểm Cuối kỳ (60%):</label>
+                <input type="text" name="ck" value="{{ ck_raw }}" class="form-control {% if err_ck %}is-invalid{% endif %}" placeholder="Ví dụ: 9">
+                {% if err_ck %}<div class="invalid-feedback">{{ err_ck }}</div>{% endif %}
+            </div>
+
+            <div class="d-grid mt-4">
+                <button type="submit" class="btn btn-primary fw-bold">Tính Điểm</button>
+            </div>
+        </form>
+
+        {% if dtb is not none %}
+            <div class="alert {% if xep_loai == 'F' or is_diem_liet %}alert-danger{% else %}alert-success{% endif %} mt-4 mb-0 text-center" role="alert">
+                <h5 class="alert-heading mb-0 fw-bold">Kết quả: {{ dtb }} - {{ xep_loai }}</h5>
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

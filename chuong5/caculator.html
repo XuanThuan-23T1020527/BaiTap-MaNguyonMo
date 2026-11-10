@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}Bài 1 - Máy Tính Cơ Bản{% endblock %}
+
+{% block content %}
+<div class="card shadow-sm">
+    <div class="card-header bg-white text-primary text-center">
+        <h4 class="mb-0 fw-bold">Bài 1: Máy Tính Cơ Bản</h4>
+    </div>
+    <div class="card-body p-4">
+        <form method="POST">
+            <div class="mb-3">
+                <label class="form-label fw-bold">Số thứ nhất (a):</label>
+                <input type="text" name="a" value="{{ a_raw }}" class="form-control {% if err_a %}is-invalid{% endif %}" placeholder="Ví dụ: 5 hoặc 2,5">
+                {% if err_a %}<div class="invalid-feedback">{{ err_a }}</div>{% endif %}
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-bold">Phép toán (op):</label>
+                <select name="op" class="form-select {% if err_op %}is-invalid{% endif %}">
+                    {% for p in ['+', '-', '*', '/'] %}
+                        <option value="{{ p }}" {% if op == p %}selected{% endif %}>{{ p }}</option>
+                    {% endfor %}
+                </select>
+                {% if err_op %}<div class="invalid-feedback d-block">{{ err_op }}</div>{% endif %}
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-bold">Số thứ hai (b):</label>
+                <input type="text" name="b" value="{{ b_raw }}" class="form-control {% if err_b %}is-invalid{% endif %}" placeholder="Ví dụ: 3 hoặc 12.5">
+                {% if err_b %}<div class="invalid-feedback">{{ err_b }}</div>{% endif %}
+            </div>
+
+            <div class="d-grid mt-4">
+                <button type="submit" class="btn btn-primary fw-bold">Tính Toán</button>
+            </div>
+        </form>
+
+        {% if result_text %}
+            <div class="alert alert-success mt-4 mb-0 text-center fw-bold fs-5" role="alert">
+                Kết quả: {{ result_text }}
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "base2.html" %}
+
+{% block title %}Đăng Nhập{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-5">
+        <div class="card shadow-sm">
+            <div class="card-header bg-white text-center py-3">
+                <h4 class="mb-0 fw-bold">Đăng Nhập</h4>
+            </div>
+            <div class="card-body p-4">
+                <form method="POST">
+                    <div class="mb-3">
+                        <label class="form-label font-weight-bold">Tên đăng nhập / Email</label>
+                        <input type="text" name="username" class="form-control" required placeholder="Nhập tên đăng nhập">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Mật khẩu</label>
+                        <input type="password" name="password" class="form-control" required placeholder="Nhập mật khẩu">
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" name="remember" class="form-check-input" id="remember">
+                        <label class="form-check-label" for="remember">Ghi nhớ đăng nhập</label>
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary">Đăng nhập</button>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer bg-white text-center py-3">
+                <small>Chưa có tài khoản? <a href="{{ url_for('register') }}">Đăng ký tại đây</a></small>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

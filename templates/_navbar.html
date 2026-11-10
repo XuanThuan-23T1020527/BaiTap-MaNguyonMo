@@ -1,0 +1,20 @@
+<nav class="navbar navbar-expand navbar-light bg-white shadow-sm">
+  <div class="container">
+    <a class="navbar-brand" href="{{ url_for('home') }}">
+      <img class="logo"
+           src="{{ url_for('static', filename='logo.svg') }}"
+           alt="{{ site_name }}">
+    </a>
+
+    <div class="navbar-nav">
+      <a class="nav-link {{ is_active('home') }}"
+         href="{{ url_for('home') }}">Trang chủ</a>
+
+      <a class="nav-link {{ is_active('about') }}"
+         href="{{ url_for('about') }}">Giới thiệu</a>
+
+      <a class="nav-link {{ is_active('contact') }}"
+         href="{{ url_for('contact') }}">Liên hệ</a>
+    </div>
+  </div>
+</nav>

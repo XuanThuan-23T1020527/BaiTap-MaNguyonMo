@@ -1,0 +1,68 @@
+
+{% extends "base.html" %}
+
+{% block title %}Giới thiệu{% endblock %}
+
+{% block content %}
+<div class="about-page">
+
+    <!-- Phần giới thiệu chính -->
+    <section class="about-hero">
+        <div class="about-badge">CHÀO MỪNG ĐẾN VỚI MINIBLOG</div>
+
+        <h1>Khám phá thế giới qua từng bài viết</h1>
+
+        <p class="about-lead">
+            MiniBlog là website minh họa cho quá trình học tập và thực hành
+            lập trình web với Python Flask. Đây là nơi tổng hợp kiến thức,
+            chia sẻ ý tưởng và ghi lại hành trình học tập.
+        </p>
+
+        <a href="{{ url_for('hello', name='dat') }}"
+           class="btn about-button">
+            Khám phá trang Hello
+            <span aria-hidden="true">→</span>
+        </a>
+    </section>
+
+    <!-- Các nội dung giới thiệu -->
+    <section class="about-features">
+        <div class="about-card">
+            <div class="about-icon">📚</div>
+            <h3>Học tập</h3>
+            <p>
+                Tổng hợp kiến thức và những nội dung hữu ích
+                phục vụ quá trình học tập.
+            </p>
+        </div>
+
+        <div class="about-card">
+            <div class="about-icon">💡</div>
+            <h3>Sáng tạo</h3>
+            <p>
+                Khuyến khích khám phá ý tưởng mới và áp dụng
+                kiến thức vào các bài tập thực tế.
+            </p>
+        </div>
+
+        <div class="about-card">
+            <div class="about-icon">💻</div>
+            <h3>Thực hành</h3>
+            <p>
+                Làm quen với Flask, xây dựng các trang web
+                và tìm hiểu cách ứng dụng Python.
+            </p>
+        </div>
+    </section>
+
+    <!-- Phần kết -->
+    <section class="about-footer">
+        <h2>Mỗi ngày học thêm một điều mới</h2>
+        <p>
+            Cảm ơn bạn đã ghé thăm MiniBlog.
+            Hãy tiếp tục khám phá các nội dung trên website nhé!
+        </p>
+    </section>
+
+</div>
+{% endblock %}
